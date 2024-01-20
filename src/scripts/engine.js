@@ -9,13 +9,34 @@ const state = {
     gameVelocity: 1000,
     hitPosition: 0,
     result: 0,
-    curretTime: 60,
+    currentTime: 60,
   },
-  // actions: {
-  //   timerId: setInterval(randomSquare, 1000),
-  //   countDownTimerId: setInterval(countDown, 1000),
-  // },
+  actions: {
+    timerId: null,
+    countDownTimerId: null,
+  },
 };
+
+function setRankingOnLocalStorage(value) {
+  const maxKeys = 5;
+  const existingKeys = Object.keys(localStorage);
+  if (existingKeys.length >= maxKeys) {
+    const oldestKey = existingKeys[0];
+    localStorage.removeItem(oldestKey);
+  }
+  localStorage.setItem(`Record ${existingKeys.length + 1}`, value);
+}
+
+function mountRankingBoard() {
+  let mensagem = '';
+  const existingKeys = Object.keys(localStorage);
+  existingKeys.forEach((key) => {
+    const value = localStorage.getItem(key);
+    mensagem += `${key}: ${value}\n`;
+  });
+
+  return mensagem;
+}
 
 function startGameCore(button) {
   if (button.name === 'refresh') {
@@ -26,14 +47,27 @@ function startGameCore(button) {
   button.name = 'refresh';
 }
 
-function countDown() {
-  state.values.curretTime--;
-  state.view.timeLeft.textContent = state.values.curretTime;
+function startGameCore(button) {
+  if (button.name === 'refresh') {
+    location.reload();
+  }
+  state.actions.timerId = setInterval(randomSquare, 1000);
+  state.actions.countDownTimerId = setInterval(countDown, 1000);
 
-  if (state.values.curretTime <= 0) {
+  button.name = 'refresh';
+}
+
+function countDown() {
+  state.values.currentTime--;
+  state.view.timeLeft.textContent = state.values.currentTime;
+
+  if (state.values.currentTime <= 0) {
     clearInterval(state.actions.countDownTimerId);
     clearInterval(state.actions.timerId);
-    alert('Game Over! O seu resultado foi: ' + state.values.result);
+    setRankingOnLocalStorage(state.values.result);
+    const rankingBoard = mountRankingBoard();
+    alert(`Game Over! O seu resultado foi: ${state.values.result}
+    ${rankingBoard}`);
   }
 }
 
