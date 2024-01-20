@@ -1,5 +1,9 @@
 # Wreck-it Ralph JavaScript game
 
+<p align="center">
+  <img src="./src/images/wreck-it-ralph-logo.webp" alt="Wreck-it Ralph Logo">
+</p>
+
 Welcome! In this repository you will find a game based on the famous movie "Wreck-It Ralph". This project aims to demonstrate several advanced JavaScript game development techniques.
 
 ### Technologies Used
