@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-image: url("../images/wall.png");
+  background-image: url('../images/wall.png');
 }
 
 .menu {
@@ -32,7 +32,7 @@
 }
 
 .enemy {
-  background-image: url("../images/ralph.png");
+  background-image: url('../images/ralph.png');
   background-size: cover;
 }
 
@@ -45,4 +45,23 @@
 .menu-time h2:nth-child(2),
 .menu-score h2:nth-child(2) {
   margin-top: 1rem;
+}
+
+.start-button {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-hammer {
+  display: flex;
+  align-items: center;
+  max-height: 6rem;
+  max-width: 10rem;
+  background: none;
+  margin-top: 2rem;
+  border-color: aqua;
+}
+
+.hammer-img {
+  height: 150%;
 }
