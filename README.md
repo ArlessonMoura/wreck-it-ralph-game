@@ -20,4 +20,4 @@ Contributions are welcome! If you want to improve this game, add new features, o
 
 ### Credits
 
-This game was developed as part of an educational project by Digital Innovation One - original repository [here] <https://github.com/digitalinnovationone/jsgame-detona-ralph>) and leave a ⭐️ if you liked the project!
+This game was developed as part of an educational project by Digital Innovation One - original repository [here](https://github.com/digitalinnovationone/jsgame-detona-ralph) and leave a ⭐️ if you liked the project!
